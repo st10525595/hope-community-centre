@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hope Community Centre - Hope Starts Right Here | Mbombela</title>
+<meta name="description" content="Hope Community Centre in Mbombela feeds families, tutors kids and skills youth. 200+ families supported every month since 2018.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+#menuBtn{display:none; background:#174a17; color:white; border:none; font-size:1.5rem; padding:0.3rem 0.8rem; border-radius:8px; cursor:pointer;}
+.form-msg{display:none; background:#eef5eb; padding:0.9rem; border-radius:10px; margin-top:1rem; font-weight:600; font-size:0.9rem;}
+@media(max-width:768px){
+  #menuBtn{display:block !important;}
+  header{flex-wrap:wrap !important;}
+  nav{display:none !important; width:100%;}
+  nav.show{display:block !important;}
+  nav.show ul{flex-direction:column !important; gap:0.5rem; padding:1rem 0;}
+  nav.show a{display:block; text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Hope Community Centre</div>
+  <button id="menuBtn" aria-label="Menu">☰</button>
+  <nav id="mainNav">
+    <ul>
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="home-hero-new">
+  <div class="hero-img-wrap">
+    <img src="images/hero.jpg" alt="Volunteer distributing food">
+    <div class="hero-text-over">
+      <span class="pill">Uplifting Mbombela Since 2018</span>
+      <h1>Hope Starts<br>Right Here</h1>
+      <p>We feed families, tutor kids & skill youth. 200+ families supported every month in Mbombela.</p>
+      <div style="margin-top:1.2rem; display:flex; gap:0.8rem;">
+        <a href="get-involved.html" class="btn" style="background:#f9a826; color:#111;">Donate Now</a>
+        <a href="about.html" class="btn" style="background:white;">Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="second-pic-section">
+  <div class="second-pic-img">
+    <img src="images/kui.jpg" alt="Community member with food parcel">
+    <div class="floating-card">
+      <strong>108 food parcels</strong><br>delivered last Saturday
+    </div>
+  </div>
+  <div class="second-pic-text">
+    <span class="pill" style="background:#eaf1e8; color:#174a17;">Real Impact • Real People</span>
+    <h2>We Don't Just Give Food.<br>We Restore Dignity.</h2>
+    <p>From a small winter drive in 2018 to a registered NPO — we have grown because our community believed in us. Every parcel is packed with love, every child tutored is a future changed.</p>
+    <div class="stats-row">
+      <div><b>200+</b><span>Families Monthly</span></div>
+      <div><b>80+</b><span>Children Tutored</span></div>
+      <div><b>20</b><span>Volunteers</span></div>
+    </div>
+    <a href="programs.html" class="btn" style="background:#174a17; color:white; margin-top:1rem;">See Our Programs →</a>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Hope Community Centre</strong> | 123 Hope Street, Mbombela</p>
+  <p>📞 0663607629 | ✉️ jndzwalo@gmail.com</p>
+  <p style="margin-top:1rem; opacity:0.8;"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="programs.html">Programs</a> | <a href="get-involved.html">Get Involved</a> | <a href="contact.html">Contact</a></p>
+  <p style="margin-top:0.5rem; font-size:0.9rem;">© 2026 Hope Community Centre. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click', function(){
+  document.getElementById('mainNav').classList.toggle('show');
+});
+</script>
+</body>
+</html>

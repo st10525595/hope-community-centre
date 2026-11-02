@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Programs | Hope Community Centre Mbombela</title>
+<meta name="description" content="Hope Community Centre programs in Mbombela. Food parcels, tutoring, youth skills and more.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;background:#c9d1c9;color:#1a2e1a;line-height:1.6;}
+  h1,h2,h3{font-family:'Poppins',sans-serif;color:#174a17;}
+  header{background:#fafffa;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+  .logo{font-weight:700;font-size:1.3rem;color:#174a17;font-family:'Poppins';}
+  nav{display:flex;gap:1.8rem;align-items:center;}
+  nav a{color:#3a4a3a;text-decoration:none;}
+  nav a.active{background:#174a17;color:#fff;padding:0.4rem 1.1rem;border-radius:50px;font-weight:600;}
+  .menu-btn{display:none;background:none;border:none;font-size:1.8rem;color:#174a17;cursor:pointer;}
+  .pill{background:#eaf2e8;color:#174a17;padding:0.4rem 1rem;border-radius:50px;font-weight:600;font-size:0.9rem;}
+  .filter-btn{padding:0.5rem 1.2rem;border-radius:50px;border:1px solid #174a17;background:#fff;color:#174a17;cursor:pointer;margin:0.2rem;font-weight:600;}
+  .filter-btn.active{background:#174a17;color:#fff;}
+  .card{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
+  .card h3{margin:0.7rem 0 0.4rem;}
+  .card p{color:#6a7a6a;}
+  .card a{color:#174a17;font-weight:700;text-decoration:none;}
+  footer{background:#12230f;color:#d8e2d8;text-align:center;padding:2rem 1rem;}
+  @media(max-width:768px){
+    nav{display:none;flex-direction:column;position:absolute;top:64px;left:0;width:100%;background:#fff;padding:1rem;gap:1rem;}
+    nav.show{display:flex;}
+    .menu-btn{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Hope Community Centre</div>
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <nav id="mainNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html" class="active">Programs</a>
+    <a href="get-involved.html">Get Involved</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section style="max-width:1100px;margin:0 auto;padding:3rem 1.5rem 1rem;text-align:center;">
+  <span class="pill">Real Impact • Real People</span>
+  <h1 style="font-size:2.4rem;margin:1rem 0 0.5rem;color:#1a2e1a;">Our Programs in Mbombela</h1>
+  <p style="color:#6a7a6a;max-width:600px;margin:0 auto;">Food parcels, tutoring, youth skills and more.</p>
+</section>
+
+<section style="max-width:1100px;margin:0 auto;padding:1rem 1.5rem 0;text-align:center;">
+  <input type="text" id="programSearch" placeholder="🔍 Search programs... e.g. food, tutoring, youth" style="width:100%;max-width:500px;padding:0.9rem 1.2rem;border-radius:50px;border:1px solid #ddd;background:#fff;font-size:1rem;">
+  <div style="margin-top:1rem;">
+    <button class="filter-btn active" onclick="filterPrograms('all', this)">All</button>
+    <button class="filter-btn" onclick="filterPrograms('food', this)">Food</button>
+    <button class="filter-btn" onclick="filterPrograms('education', this)">Education</button>
+    <button class="filter-btn" onclick="filterPrograms('youth', this)">Youth</button>
+  </div>
+  <p id="noResults" style="display:none;color:red;margin-top:1rem;font-weight:700;">No programs found. Try another word.</p>
+</section>
+
+<div id="programsContainer" style="max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;"></div>
+
+<section style="max-width:800px;margin:0 auto 3rem;padding:2rem;text-align:center;background:#fff;border-radius:16px;box-shadow:0 2px 15px rgba(0,0,0,0.05);">
+  <h2>Want To Join?</h2>
+  <p style="color:#6a7a6a;margin:0.5rem 0 1.5rem;">All programs are free. Come to 123 Hope Street, Mbombela or sign up online.</p>
+  <a href="get-involved.html" style="display:inline-block;background:#174a17;color:#fff;padding:0.9rem 2rem;border-radius:50px;text-decoration:none;font-weight:700;">See Our Programs →</a>
+</section>
+
+<footer>
+  <p><strong>Hope Community Centre</strong> | 123 Hope Street, Mbombela</p>
+  <p>📞 0663607629 | ✉️ jndzwalo@gmail.com</p>
+  <p style="margin-top:1rem; opacity:0.8;"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="programs.html">Programs</a> | <a href="get-involved.html">Get Involved</a> | <a href="contact.html">Contact</a></p>
+  <p style="margin-top:0.5rem; font-size:0.9rem;">© 2026 Hope Community Centre. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click', function(){
+  document.getElementById('mainNav').classList.toggle('show');
+});
+var programs = [
+  { title: "Food Parcel Program", category: "food", desc: "Monthly food parcels for 200+ families in Mbombela. Includes maize meal, beans, oil and fresh vegetables.", emoji: "🥗" },
+  { title: "After-School Tutoring", category: "education", desc: "Free tutoring in Maths and English for Grade 8-12 learners, Monday to Thursday 15:00 - 17:00.", emoji: "📚" },
+  { title: "Youth Skills Workshop", category: "youth", desc: "Computer skills, CV writing and job interview prep for youth aged 16-25.", emoji: "💻" },
+  { title: "Community Garden", category: "food", desc: "Grow your own vegetables. Learn gardening and help feed the community.", emoji: "🌱" },
+  { title: "Adult Literacy Classes", category: "education", desc: "Reading and writing classes for adults, every Saturday morning.", emoji: "✏️" },
+  { title: "Youth Sports & Mentoring", category: "youth", desc: "Soccer, netball and life-skills mentoring to keep youth active and focused.", emoji: "⚽" }
+];
+function displayPrograms(list){
+  var container = document.getElementById('programsContainer');
+  container.innerHTML = '';
+  document.getElementById('noResults').style.display = list.length === 0 ? 'block' : 'none';
+  list.forEach(function(p){
+    container.innerHTML += '<div class="card"><div style="font-size:2.5rem;">'+p.emoji+'</div><h3>'+p.title+'</h3><p>'+p.desc+'</p><br><a href="get-involved.html">Join This Program →</a></div>';
+  });
+}
+displayPrograms(programs);
+function filterPrograms(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  if(btn) btn.classList.add('active');
+  if(cat === 'all'){ displayPrograms(programs); return; }
+  displayPrograms(programs.filter(function(p){ return p.category === cat; }));
+}
+document.getElementById('programSearch').addEventListener('input', function(){
+  var word = this.value.toLowerCase();
+  displayPrograms(programs.filter(function(p){
+    return p.title.toLowerCase().includes(word) || p.desc.toLowerCase().includes(word);
+  }));
+});
+</script>
+</body>
+</html>

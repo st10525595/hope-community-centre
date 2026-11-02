@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved - Donate or Volunteer | Hope Community Centre</title>
+<meta name="description" content="Donate food, clothing or money, or volunteer as a tutor. Every R50 feeds a family for a week in Mbombela.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+#menuBtn{display:none; background:#174a17; color:white; border:none; font-size:1.5rem; padding:0.3rem 0.8rem; border-radius:8px; cursor:pointer;}
+.form-msg{display:none; background:#d9e3d5; padding:0.9rem; border-radius:10px; margin-top:1rem; font-weight:600; font-size:0.9rem;}
+@media(max-width:768px){
+  #menuBtn{display:block !important;}
+  header{flex-wrap:wrap !important;}
+  nav{display:none !important; width:100%;}
+  nav.show{display:block !important;}
+  nav.show ul{flex-direction:column !important; gap:0.5rem; padding:1rem 0;}
+  nav.show a{display:block; text-align:center;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Hope Community Centre</div>
+  <button id="menuBtn" aria-label="Menu">☰</button>
+  <nav id="mainNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a class="active" href="get-involved.html">Get Involved</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="hero small">
+  <span class="pill">Donate • Volunteer • Support</span>
+  <h1>Get Involved with<br>Hope Community Centre</h1>
+  <p>Your support helps us feed families and train youth in Mbombela</p>
+</section>
+<main class="programs-grid" style="grid-template-columns: 1fr 1.3fr;">
+  <div class="prog-card dark" style="height:fit-content;">
+    <div class="prog-icon">💛</div>
+    <h3>Donate</h3>
+    <p>We accept food donations, clothing, and monetary contributions. Every R50 feeds a family for a week.</p><br>
+    <p><strong>Bank:</strong> FNB<br><strong>Account:</strong> 123 456 789<br><strong>Branch:</strong> Mbombela<br><strong>Ref:</strong> Hope Donation</p><br>
+    <a class="btn" style="background:#f9a826; color:#1a1a1a; width:100%; text-align:center;">Donate Now</a><br><br>
+    <span class="time">100% goes to community</span>
+  </div>
+  <div class="prog-card white">
+    <h3>Volunteer Enquiry Form</h3>
+    <p style="margin-bottom:1.2rem; opacity:0.6;">Fill this form and we will contact you within 24 hours</p>
+    <form id="volunteerForm" novalidate>
+      <label>Name:</label>
+      <input type="text" name="name" placeholder="Your full name" required>
+      <label>Email:</label>
+      <input type="email" name="email" placeholder="you@example.com" required>
+      <label>How would you like to help?</label>
+      <textarea name="message" rows="5" placeholder="e.g. Tutoring, sewing workshop, food packing..." required></textarea>
+      <button type="submit" class="btn" style="width:100%; text-align:center; background:#174a17; color:white; border:none; cursor:pointer;">Send Enquiry</button>
+      <p id="volunteerMsg" class="form-msg"></p>
+    </form>
+  </div>
+</main>
+<footer>
+  <p><strong>Hope Community Centre</strong> | 123 Hope Street, Mbombela</p>
+  <p>📞 0663607629
+     | ✉️ jndzwalo@gmail.com</p>
+  <p style="margin-top:1rem; opacity:0.8;"><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="programs.html">Programs</a> | <a href="get-involved.html">Get Involved</a> | <a href="contact.html">Contact</a></p>
+  <p style="margin-top:0.5rem; font-size:0.9rem;">© 2026 Hope Community Centre. All rights reserved.</p>
+</footer>
+<script>
+document.getElementById('menuBtn').addEventListener('click', function(){
+  document.getElementById('mainNav').classList.toggle('show');
+});
+var vf = document.getElementById('volunteerForm');
+if(vf){
+  vf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = vf.querySelector('[name="name"]').value.trim();
+    var email = vf.querySelector('[name="email"]').value.trim();
+    var msg = vf.querySelector('[name="message"]').value.trim();
+    var box = document.getElementById('volunteerMsg');
+    box.style.display='block';
+    if(name.length < 2){ box.textContent='⚠️ Please enter your full name.'; box.style.color='red'; return; }
+    if(!email.includes('@')){ box.textContent='⚠️ Please enter a valid email.'; box.style.color='red'; return; }
+    if(msg.length < 10){ box.textContent='⚠️ Please write at least 10 characters.'; box.style.color='red'; return; }
+    box.textContent='Sending...'; box.style.color='#174a17';
+    setTimeout(function(){ box.textContent='✅ Thank you '+name+'! Your message was sent. We will reply within 24 hours.'; vf.reset(); },800);
+  });
+}
+</script>
+</body>
+</html>
